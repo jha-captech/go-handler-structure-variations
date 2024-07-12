@@ -37,7 +37,6 @@ func returnJSON(w http.ResponseWriter, logger *slog.Logger, status int, data any
 	if err := json.NewEncoder(w).Encode(data); err != nil {
 		logger.Error("Error while marshaling data", "err", err, "data", data)
 		http.Error(w, `{"Error": "Internal server error"}`, http.StatusInternalServerError)
-		return
 	}
 }
 
